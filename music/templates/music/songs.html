@@ -37,9 +37,10 @@
                                     <td>{{ song.album.artist }}</td>
                                     <td>
                                         <a target="_blank">
-                                            <button type="button" class="btn btn-success btn-xs">
-                                                <span class="glyphicon glyphicon-play"></span>&nbsp; Play
-                                            </button>
+                                            <audio controls="controls"  style="width: 150px;" >
+                                              <source src='{{ song.audio_file.url }}' type="audio/mp3" >
+                                            Your browser does not support the audio element.
+                                            </audio>  
                                         </a>
                                     </td>
                                     <td>
@@ -52,6 +53,7 @@
                                         <a href="{% url 'music:favorite' song.id %}" class="btn-favorite"><span class="glyphicon glyphicon-star {% if song.is_favorite %}active{% endif %}"></span></a>
                                     </td>
                                 </tr>
+                                
                             {% endfor %}
                         </tbody>
                     </table>
@@ -61,25 +63,25 @@
         </div>
 
     </div>
-
-
-
-</div>
-<script type='text/javascript'>
-    $(document).ready(function(){
-       $('button.btn-success').on('click',function(){
-        $('div.panel-body').append(`
-            <div class='popup'>
-                           
-            <audio controls>
-              <source src="{{ song.audio_file.url }}" type="audio/ogg">
+<!--  <div class='popup'>
+            <audio controls >
+              <source src='{{ song.audio_file.url }}' type="audio/mp3" class='audio-player'>
             Your browser does not support the audio element.
             </audio>
-            </div>
-            `);
+  data-url='{{ song.audio_file.url }}'
+
+ </div>
+ -->
+
+</div>
+<!-- <script type='text/javascript'>
+    $(document).ready(function(){
+       $('button.btn-success').on('click',function(){
+        var url = $(this).data('url');
+        $('.audio-player').attr('src',url);
        });
     });
-</script>
+</script> -->
 {% endblock %}
 
 

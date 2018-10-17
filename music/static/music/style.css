@@ -1,6 +1,7 @@
 body {
-    background: white url("images/background.png");
+    background: white url("images/abc.png");
 }
+
 
 ul.errorlist {
     padding-left: 0;
@@ -26,3 +27,19 @@ ul.errorlist > li {
 .glyphicon-star.active {
     color: #FDB230;
 }
+h2, h3, h4, h5, h6 {
+	color: #fff;
+}
+
+.thumbnail {
+    display: block;
+    padding: 2px;
+    margin-bottom: 20px;
+    line-height: 1.42857143;
+    background-color: #ffffff1a;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    -webkit-transition: border .2s ease-in-out;
+    -o-transition: border .2s ease-in-out;
+    transition: border .2s ease-in-out;
+    }

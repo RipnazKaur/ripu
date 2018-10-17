@@ -11,7 +11,7 @@ IMAGE_FILE_TYPES = ['png', 'jpg', 'jpeg']
 
 
 def create_album(request):
-    if not request.user.is_authenticated():
+    if not request.user.is_authenticated:
         return render(request, 'music/login.html')
     else:
         form = AlbumForm(request.POST or None, request.FILES or None)
@@ -124,7 +124,7 @@ def favorite_album(request, album_id):
 
 def index(request):
     if not request.user.is_authenticated:
-        return render(request, 'music/login.html')
+        return render(request, 'music/mlogin.html')
     else:
         albums = Album.objects.filter(user=request.user)
         song_results = Song.objects.all()
@@ -151,7 +151,7 @@ def logout_user(request):
     context = {
         "form": form,
     }
-    return render(request, 'music/login.html', context)
+    return render(request, 'music/mlogin.html', context)
 
 
 def login_user(request):
@@ -165,10 +165,10 @@ def login_user(request):
                 albums = Album.objects.filter(user=request.user)
                 return render(request, 'music/index.html', {'albums': albums})
             else:
-                return render(request, 'music/login.html', {'error_message': 'Your account has been disabled'})
+                return render(request, 'music/mlogin.html', {'error_message': 'Your account has been disabled'})
         else:
-            return render(request, 'music/login.html', {'error_message': 'Invalid login'})
-    return render(request, 'music/login.html')
+            return render(request, 'music/mlogin.html', {'error_message': 'Invalid login'})
+    return render(request, 'music/mlogin.html')
 
 
 def register(request):

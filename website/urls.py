@@ -7,7 +7,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('music/', include('music.urls')),
     path('', include('music.urls')),
-    path('accounts/', include('django.contrib.auth.urls')),
+    path('music/', include('django.contrib.auth.urls')),
 ]
 
 if settings.DEBUG:

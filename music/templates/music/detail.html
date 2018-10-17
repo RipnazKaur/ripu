@@ -45,7 +45,7 @@
                         <thead>
                         <tr>
                             <th>Title</th>
-                            <th>Audio File</th>
+                            <th>Song</th>
                             <th>Favorite</th>
                             <th>Actions</th>
                         </tr>
@@ -55,10 +55,14 @@
                             <tr>
                                 <td>{{ song.song_title }}</td>
                                 <td>
-                                    <a target="_blank" href="{{ song.audio_file.url }}">
-                                        <button type="button" class="btn btn-success btn-xs">
+
+                                            <audio controls="controls"  style="width: 400px;" >
+                                              <source src='{{ song.audio_file.url }}' type="audio/mp3" >
+                                            Your browser does not support the audio element.
+                                            </audio>                                        
+                                            <!-- <button type="button" class="btn btn-success btn-xs">
                                             <span class="glyphicon glyphicon-play"></span>&nbsp; Play
-                                        </button>
+                                        </button> -->
                                     </a>
                                 </td>
                                 <td>
