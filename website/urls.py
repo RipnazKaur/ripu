@@ -8,6 +8,7 @@ urlpatterns = [
     path('music/', include('music.urls')),
     path('', include('music.urls')),
     path('music/', include('django.contrib.auth.urls')),
+
 ]
 
 if settings.DEBUG:

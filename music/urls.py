@@ -5,7 +5,9 @@ app_name = 'music'
 
 
 urlpatterns = [
-    path('', views.index, name='index'),
+    path('home', views.index, name='index'),
+    
+    path('', views.Landing, name="landing"),
 
     path('register/', views.register, name='register'),
 

@@ -9,6 +9,11 @@ from .models import Album, Song
 AUDIO_FILE_TYPES = ['wav', 'mp3', 'ogg']
 IMAGE_FILE_TYPES = ['png', 'jpg', 'jpeg']
 
+def Landing(request):
+    template_name = "music/landing.html"
+    return render(request, template_name)
+
+
 
 def create_album(request):
     if not request.user.is_authenticated:
